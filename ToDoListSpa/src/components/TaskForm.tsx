@@ -74,86 +74,91 @@ const TaskForm = () => {
         display: "flex",
         flexDirection: "column",
         maxWidth: 600,
-        backgroundColor: "#f9f9f9",
-        p: 3,
-        borderRadius: "8px",
-        boxShadow: "0 2px 8px rgba(0, 0, 0, 0.1)",
       }}
     >
-      <Box
-        sx={{
-          display: "flex",
-          alignItems: "center",
-          mb: 3,
+      <div
+        style={{
+          borderRadius: "8px",
+          boxShadow: "0 2px 8px rgba(0, 0, 0, 0.1)",
+          backgroundColor: "#f9f9f9",
+          padding: "20px",
         }}
       >
-        <IconButton
-          onClick={() => navigate("/tasks")}
-          sx={{ color: "#1976d2", mr: 2 }}
-        >
-          <FaArrowLeft />
-        </IconButton>
-        <Typography
-          variant="h4"
-          sx={{ fontWeight: "bold", textAlign: "center", flexGrow: 1 }}
-        >
-          {id ? "Edit Task" : "Create Task"}
-        </Typography>
-      </Box>
-      <form onSubmit={handleSubmit}>
-        <TextField
-          label="Title"
-          name="title"
-          value={task.title}
-          onChange={handleChange}
-          fullWidth
-          margin="normal"
-          required
-          sx={{ backgroundColor: "#fff", borderRadius: "4px" }}
-        />
-        <TextField
-          label="Description"
-          name="description"
-          value={task.description}
-          onChange={handleChange}
-          fullWidth
-          margin="normal"
-          multiline
-          rows={4}
-          sx={{ backgroundColor: "#fff", borderRadius: "4px" }}
-        />
-        <TextField
-          label="Category"
-          name="category"
-          value={task.category}
-          onChange={handleChange}
-          fullWidth
-          margin="normal"
-          select
-          sx={{ backgroundColor: "#fff", borderRadius: "4px" }}
-        >
-          <MenuItem value="Work">Work</MenuItem>
-          <MenuItem value="Personal">Personal</MenuItem>
-          <MenuItem value="Hobby">Hobby</MenuItem>
-          <MenuItem value="Other">Other</MenuItem>
-        </TextField>
-        <Button
-          type="submit"
-          variant="contained"
-          color="primary"
-          startIcon={<FaSave />}
-          fullWidth
+        <Box
           sx={{
-            mt: 3,
-            p: 1.5,
-            fontSize: "16px",
-            fontWeight: "bold",
-            boxShadow: "0 2px 4px rgba(0, 0, 0, 0.2)",
+            display: "flex",
+            alignItems: "center",
+            mb: 3,
           }}
         >
-          Save Task
-        </Button>
-      </form>
+          <IconButton
+            onClick={() => navigate("/tasks")}
+            sx={{ color: "#1976d2", mr: 2 }}
+          >
+            <FaArrowLeft />
+          </IconButton>
+          <Typography
+            variant="h4"
+            sx={{ fontWeight: "bold", textAlign: "center", flexGrow: 1 }}
+          >
+            {id ? "Edit Task" : "Create Task"}
+          </Typography>
+        </Box>
+        <form onSubmit={handleSubmit}>
+          <TextField
+            label="Title"
+            name="title"
+            value={task.title}
+            onChange={handleChange}
+            fullWidth
+            margin="normal"
+            required
+            sx={{ backgroundColor: "#fff", borderRadius: "4px" }}
+          />
+          <TextField
+            label="Description"
+            name="description"
+            value={task.description}
+            onChange={handleChange}
+            fullWidth
+            margin="normal"
+            multiline
+            rows={4}
+            sx={{ backgroundColor: "#fff", borderRadius: "4px" }}
+          />
+          <TextField
+            label="Category"
+            name="category"
+            value={task.category}
+            onChange={handleChange}
+            fullWidth
+            margin="normal"
+            select
+            sx={{ backgroundColor: "#fff", borderRadius: "4px" }}
+          >
+            <MenuItem value="Work">Work</MenuItem>
+            <MenuItem value="Personal">Personal</MenuItem>
+            <MenuItem value="Hobby">Hobby</MenuItem>
+            <MenuItem value="Other">Other</MenuItem>
+          </TextField>
+          <Button
+            type="submit"
+            variant="contained"
+            color="primary"
+            startIcon={<FaSave />}
+            fullWidth
+            sx={{
+              mt: 3,
+              p: 1.5,
+              fontSize: "16px",
+              fontWeight: "bold",
+              boxShadow: "0 2px 4px rgba(0, 0, 0, 0.2)",
+            }}
+          >
+            Save Task
+          </Button>
+        </form>
+      </div>
     </Box>
   );
 };

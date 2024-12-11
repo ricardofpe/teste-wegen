@@ -97,129 +97,136 @@ const TaskList = () => {
         display: "flex",
         flexDirection: "column",
         maxWidth: 600,
-        backgroundColor: "#f9f9f9",
-        p: 3,
-        borderRadius: "8px",
-        boxShadow: "0 2px 8px rgba(0, 0, 0, 0.1)",
       }}
     >
-      <Typography
-        variant="h4"
-        gutterBottom
-        sx={{ textAlign: "center", fontWeight: "bold", mb: 3 }}
-      >
-        Task List
-      </Typography>
-      <Box
-        sx={{
-          maxHeight: "60vh",
-          overflowY: "auto",
+      <div
+        style={{
+          borderRadius: "8px",
+          boxShadow: "0 2px 8px rgba(0, 0, 0, 0.1)",
+          backgroundColor: "#f9f9f9",
+          padding: "20px",
         }}
       >
-        <List>
-          {tasks.map((task) => (
-            <ListItem
-              key={task.id}
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "flex-start",
-                backgroundColor: "#fff",
-                borderRadius: "8px",
-                p: 2,
-                mb: 2,
-                boxShadow: "0 1px 4px rgba(0, 0, 0, 0.1)",
-              }}
-            >
-              <Box
+        <Typography
+          variant="h4"
+          gutterBottom
+          sx={{ textAlign: "center", fontWeight: "bold", mb: 3 }}
+        >
+          Task List
+        </Typography>
+        <Box
+          sx={{
+            maxHeight: "60vh",
+            overflowY: "auto",
+          }}
+        >
+          <List>
+            {tasks.map((task) => (
+              <ListItem
+                key={task.id}
                 sx={{
                   display: "flex",
-                  alignItems: "center",
-                  justifyContent: "space-between",
-                  width: "100%",
+                  flexDirection: "column",
+                  alignItems: "flex-start",
+                  backgroundColor: "#fff",
+                  borderRadius: "8px",
+                  p: 2,
+                  mb: 2,
+                  boxShadow: "0 1px 4px rgba(0, 0, 0, 0.1)",
                 }}
               >
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      checked={task.isCompleted}
-                      onChange={(event) => handleCheckboxChange(event, task.id)}
-                      name="isCompleted"
-                    />
-                  }
-                  label={
-                    <Typography
-                      sx={{
-                        fontWeight: "bold",
-                        textDecoration: task.isCompleted
-                          ? "line-through"
-                          : "none",
-                      }}
+                <Box
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    width: "100%",
+                  }}
+                >
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        checked={task.isCompleted}
+                        onChange={(event) =>
+                          handleCheckboxChange(event, task.id)
+                        }
+                        name="isCompleted"
+                      />
+                    }
+                    label={
+                      <Typography
+                        sx={{
+                          fontWeight: "bold",
+                          textDecoration: task.isCompleted
+                            ? "line-through"
+                            : "none",
+                        }}
+                      >
+                        {task.title}
+                      </Typography>
+                    }
+                  />
+                  <Box>
+                    <IconButton
+                      component={Link}
+                      to={`/tasks/${task.id}`}
+                      sx={{ color: "#1976d2", mr: 1 }}
                     >
-                      {task.title}
-                    </Typography>
-                  }
-                />
-                <Box>
-                  <IconButton
-                    component={Link}
-                    to={`/tasks/${task.id}`}
-                    sx={{ color: "#1976d2", mr: 1 }}
-                  >
-                    <FaEdit />
-                  </IconButton>
-                  <IconButton
-                    onClick={() => handleDeleteTask(task.id)}
-                    sx={{ color: "#d32f2f", mr: 1 }}
-                  >
-                    <FaTrashAlt />
-                  </IconButton>
-                  <IconButton
-                    onClick={() => handleDuplicateTask(task)}
-                    sx={{ color: "#4caf50" }}
-                  >
-                    <FaCopy />
-                  </IconButton>
+                      <FaEdit />
+                    </IconButton>
+                    <IconButton
+                      onClick={() => handleDeleteTask(task.id)}
+                      sx={{ color: "#d32f2f", mr: 1 }}
+                    >
+                      <FaTrashAlt />
+                    </IconButton>
+                    <IconButton
+                      onClick={() => handleDuplicateTask(task)}
+                      sx={{ color: "#4caf50" }}
+                    >
+                      <FaCopy />
+                    </IconButton>
+                  </Box>
                 </Box>
-              </Box>
 
-              <Typography
-                variant="body2"
-                sx={{ marginLeft: "24px", marginBottom: 1, color: "#555" }}
-              >
-                {task.description}
-              </Typography>
+                <Typography
+                  variant="body2"
+                  sx={{ marginLeft: "24px", marginBottom: 1, color: "#555" }}
+                >
+                  {task.description}
+                </Typography>
 
-              <Typography
-                variant="body2"
-                sx={{
-                  marginLeft: "24px",
-                  color: "#757575",
-                  fontStyle: "italic",
-                }}
-              >
-                Category: {task.category}
-              </Typography>
-            </ListItem>
-          ))}
-        </List>
-      </Box>
-      <Button
-        component={Link}
-        to="/tasks/new"
-        variant="contained"
-        color="primary"
-        startIcon={<FaPlus />}
-        fullWidth
-        sx={{
-          mt: 3,
-          p: 1.5,
-          fontSize: "16px",
-          fontWeight: "bold",
-        }}
-      >
-        Add Task
-      </Button>
+                <Typography
+                  variant="body2"
+                  sx={{
+                    marginLeft: "24px",
+                    color: "#757575",
+                    fontStyle: "italic",
+                  }}
+                >
+                  Category: {task.category}
+                </Typography>
+              </ListItem>
+            ))}
+          </List>
+        </Box>
+        <Button
+          component={Link}
+          to="/tasks/new"
+          variant="contained"
+          color="primary"
+          startIcon={<FaPlus />}
+          fullWidth
+          sx={{
+            mt: 3,
+            p: 1.5,
+            fontSize: "16px",
+            fontWeight: "bold",
+          }}
+        >
+          Add Task
+        </Button>
+      </div>
     </Box>
   );
 };

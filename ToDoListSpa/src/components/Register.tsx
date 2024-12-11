@@ -62,109 +62,114 @@ const Register = () => {
         display: "flex",
         flexDirection: "column",
         maxWidth: 600,
-        backgroundColor: "#f9f9f9",
-        p: 3,
-        borderRadius: "8px",
-        boxShadow: "0 2px 8px rgba(0, 0, 0, 0.1)",
       }}
     >
-      <Typography
-        variant="h4"
-        gutterBottom
-        sx={{ textAlign: "center", fontWeight: "bold", mb: 3, color: "#333" }}
+      <div
+        style={{
+          borderRadius: "8px",
+          boxShadow: "0 2px 8px rgba(0, 0, 0, 0.1)",
+          backgroundColor: "#f9f9f9",
+          padding: "20px",
+        }}
       >
-        Register
-      </Typography>
-      {error && (
-        <Typography color="error" sx={{ mb: 2, textAlign: "center" }}>
-          {error}
-        </Typography>
-      )}
-      <form onSubmit={handleSubmit}>
-        <TextField
-          label="Username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          fullWidth
-          margin="normal"
-          required
-          sx={{ backgroundColor: "#fff", borderRadius: "4px" }}
-        />
-        <TextField
-          label="Password"
-          type={showPassword ? "text" : "password"}
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          fullWidth
-          margin="normal"
-          required
-          sx={{ backgroundColor: "#fff", borderRadius: "4px" }}
-          InputProps={{
-            endAdornment: (
-              <InputAdornment position="end">
-                <IconButton
-                  aria-label="toggle password visibility"
-                  onClick={handleClickShowPassword}
-                  edge="end"
-                >
-                  {showPassword ? <VisibilityOff /> : <Visibility />}
-                </IconButton>
-              </InputAdornment>
-            ),
-          }}
-        />
-        <TextField
-          label="Confirm Password"
-          type={showConfirmPassword ? "text" : "password"}
-          value={confirmPassword}
-          onChange={(e) => setConfirmPassword(e.target.value)}
-          fullWidth
-          margin="normal"
-          required
-          sx={{ backgroundColor: "#fff", borderRadius: "4px" }}
-          InputProps={{
-            endAdornment: (
-              <InputAdornment position="end">
-                <IconButton
-                  aria-label="toggle password visibility"
-                  onClick={handleClickShowConfirmPassword}
-                  edge="end"
-                >
-                  {showConfirmPassword ? <VisibilityOff /> : <Visibility />}
-                </IconButton>
-              </InputAdornment>
-            ),
-          }}
-        />
-        <Button
-          type="submit"
-          variant="contained"
-          color="primary"
-          fullWidth
-          sx={{
-            mt: 3,
-            p: 1.5,
-            fontSize: "16px",
-            fontWeight: "bold",
-            boxShadow: "0 2px 4px rgba(0, 0, 0, 0.2)",
-          }}
+        <Typography
+          variant="h4"
+          gutterBottom
+          sx={{ textAlign: "center", fontWeight: "bold", mb: 3, color: "#333" }}
         >
           Register
-        </Button>
-      </form>
-      <Typography
-        variant="body2"
-        sx={{ mt: 2, textAlign: "center", color: "#757575" }}
-      >
-        Já tem uma conta?
-        <Link
-          component={RouterLink}
-          to="/login"
-          sx={{ ml: 0.5, color: "#1976d2", fontWeight: "bold" }}
+        </Typography>
+        {error && (
+          <Typography color="error" sx={{ mb: 2, textAlign: "center" }}>
+            {error}
+          </Typography>
+        )}
+        <form onSubmit={handleSubmit}>
+          <TextField
+            label="Username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            fullWidth
+            margin="normal"
+            required
+            sx={{ backgroundColor: "#fff", borderRadius: "4px" }}
+          />
+          <TextField
+            label="Password"
+            type={showPassword ? "text" : "password"}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            fullWidth
+            margin="normal"
+            required
+            sx={{ backgroundColor: "#fff", borderRadius: "4px" }}
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">
+                  <IconButton
+                    aria-label="toggle password visibility"
+                    onClick={handleClickShowPassword}
+                    edge="end"
+                  >
+                    {showPassword ? <VisibilityOff /> : <Visibility />}
+                  </IconButton>
+                </InputAdornment>
+              ),
+            }}
+          />
+          <TextField
+            label="Confirm Password"
+            type={showConfirmPassword ? "text" : "password"}
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+            fullWidth
+            margin="normal"
+            required
+            sx={{ backgroundColor: "#fff", borderRadius: "4px" }}
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">
+                  <IconButton
+                    aria-label="toggle password visibility"
+                    onClick={handleClickShowConfirmPassword}
+                    edge="end"
+                  >
+                    {showConfirmPassword ? <VisibilityOff /> : <Visibility />}
+                  </IconButton>
+                </InputAdornment>
+              ),
+            }}
+          />
+          <Button
+            type="submit"
+            variant="contained"
+            color="primary"
+            fullWidth
+            sx={{
+              mt: 3,
+              p: 1.5,
+              fontSize: "16px",
+              fontWeight: "bold",
+              boxShadow: "0 2px 4px rgba(0, 0, 0, 0.2)",
+            }}
+          >
+            Register
+          </Button>
+        </form>
+        <Typography
+          variant="body2"
+          sx={{ mt: 2, textAlign: "center", color: "#757575" }}
         >
-          Login
-        </Link>
-      </Typography>
+          Já tem uma conta?
+          <Link
+            component={RouterLink}
+            to="/login"
+            sx={{ ml: 0.5, color: "#1976d2", fontWeight: "bold" }}
+          >
+            Login
+          </Link>
+        </Typography>
+      </div>
     </Box>
   );
 };
