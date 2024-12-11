@@ -1,5 +1,9 @@
 # teste-wegen
 
+
+https://github.com/user-attachments/assets/e8b0289d-2e29-4e50-a6f4-b103c0c6e0cd
+
+
 Rodar o backend:
 
 <ul> <li>Configurar o PostgreSQL</li>
