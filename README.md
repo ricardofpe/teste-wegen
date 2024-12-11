@@ -2,7 +2,7 @@
 
 Rodar o backend:
 
-<ul> <li>Configurar o PostgreeSQL</li>
+<ul> <li>Configurar o PostgreSQL</li>
 <li>Baixar o dotnet</li>
 
 </ul>
